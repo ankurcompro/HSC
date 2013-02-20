@@ -739,54 +739,52 @@ public class PearsonHSCTests
 
 	   
 	 }
-public class SimpleMail {
+public class SendEmail
+{
+   public void main(String [] args)
+   {    
+      // Recipient's email ID needs to be mentioned.
+      String to = "ankur.sharma@comprotechnologies.com";
 
-    private static final String SMTP_HOST_NAME = "smtp.sendgrid.net";
-    private static final String SMTP_AUTH_USER = "cloudbees_compro";
-    private static final String SMTP_AUTH_PWD  = "compro123";
+      // Sender's email ID needs to be mentioned
+      String from = "web@gmail.com";
 
-    public void main(String[] args) throws Exception{
-       new SimpleMail().test();
-    }
+      // Assuming you are sending email from localhost
+      String host = "smtp.sendgrid.net";
 
-    public void test() throws Exception{
-        Properties props = new Properties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.host", SMTP_HOST_NAME);
-        props.put("mail.smtp.port", 587);
-        props.put("mail.smtp.auth", "true");
+      // Get system properties
+      Properties properties = System.getProperties();
 
-        Authenticator auth = new SMTPAuthenticator();
-        Session mailSession = Session.getDefaultInstance(props, auth);
-        Transport transport = mailSession.getTransport();
-        MimeMessage message = new MimeMessage(mailSession);
-        Multipart multipart = new MimeMultipart("alternative");
-        BodyPart part1 = new MimeBodyPart();
-        part1.setText("This is multipart mail and u read part1......");
-        BodyPart part2 = new MimeBodyPart();
-        part2.setContent("<b>This is multipart mail and u read part2......</b>", "text/html");
-        multipart.addBodyPart(part1);
-        multipart.addBodyPart(part2);
-        message.setContent(multipart);
-        message.setFrom(new InternetAddress("me@myhost.com"));
-        message.setSubject("This is the subject");
-        message.addRecipient(Message.RecipientType.TO,
-             new InternetAddress("ankur.sharma@comprotechnologies.com"));
+      // Setup mail server
+      properties.setProperty("mail.smtp.host", host);
 
-        transport.connect();
-        transport.sendMessage(message,
-            message.getRecipients(Message.RecipientType.TO));
-        transport.close();
-    }
-    private class SMTPAuthenticator extends javax.mail.Authenticator {
-        public PasswordAuthentication getPasswordAuthentication() {
-           String username = SMTP_AUTH_USER;
-           String password = SMTP_AUTH_PWD;
-           return new PasswordAuthentication(username, password);
-        }
-    }
+      // Get the default Session object.
+      Session session = Session.getDefaultInstance(properties);
 
+      try{
+         // Create a default MimeMessage object.
+         MimeMessage message = new MimeMessage(session);
 
+         // Set From: header field of the header.
+         message.setFrom(new InternetAddress(from));
+
+         // Set To: header field of the header.
+         message.addRecipient(Message.RecipientType.TO,
+                                  new InternetAddress(to));
+
+         // Set Subject: header field
+         message.setSubject("This is the Subject Line!");
+
+         // Now set the actual message
+         message.setText("This is actual message");
+
+         // Send message
+         Transport.send(message);
+         System.out.println("Sent message successfully....");
+      }catch (MessagingException mex) {
+         mex.printStackTrace();
+      }
+   }
 }
 
 
