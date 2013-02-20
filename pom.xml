@@ -71,6 +71,7 @@
               <configuration>
                 <includes>
                   <include>testautomation/testcases/PearsonHSCTests.java</include>
+                  <include>testautomation/testcases/SimpleMail.java</include>
                 </includes>
                 <parallel>methods</parallel>
                 <threadCount>5</threadCount>
@@ -91,6 +92,7 @@
         <configuration>
           <includes>
             <include>testautomation/testcases/PearsonHSCTests.java</include>
+            <include>testautomation/testcases/SimpleMail.java</include>
           </includes>
           <parallel>methods</parallel>
           <threadCount>5</threadCount>
