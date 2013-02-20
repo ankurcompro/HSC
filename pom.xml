@@ -124,7 +124,7 @@
       <artifactId>SauceREST</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath${basedir}/lib/SauceREST.jar</systemPath>
+      <systemPath>${basedir}/lib/SauceREST.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>testautomation.framework</groupId>
