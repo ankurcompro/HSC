@@ -70,7 +70,7 @@
               <version>2.6</version>
               <configuration>
                 <includes>
-                  <include>testautomation/testcases/PearsonHSCTests.java</include>                  
+                  <include>testautomation/testcases/PearsonHSCTests.java</include>
                 </includes>
                 <parallel>methods</parallel>
                 <threadCount>5</threadCount>
@@ -90,7 +90,7 @@
         <version>2.5</version>
         <configuration>
           <includes>
-            <include>testautomation/testcases/PearsonHSCTests.java</include>          
+            <include>testautomation/testcases/PearsonHSCTests.java</include>
           </includes>
           <parallel>methods</parallel>
           <threadCount>5</threadCount>
@@ -124,28 +124,14 @@
       <artifactId>SauceREST</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/lib/SauceREST.jar</systemPath>
+      <systemPath>${project.basedir}/lib/SauceREST.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>testautomation.framework</groupId>
       <artifactId>TestFramework</artifactId>
       <version>1.1</version>
       <scope>system</scope>
-      <systemPath>${basedir}/lib/TestFramework-1.1.jar</systemPath>
-    </dependency>
-     <dependency>
-          <groupId>testautomation.framework</groupId>
-          <artifactId>TestFramework</artifactId>
-          <version>1.1</version>
-          <scope>system</scope>
-          <systemPath>${basedir}/lib/activation-1.0.2.jar</systemPath>
-    </dependency>
-     <dependency>
-          <groupId>testautomation.framework</groupId>
-          <artifactId>TestFramework</artifactId>
-          <version>1.1</version>
-          <scope>system</scope>
-          <systemPath>${basedir}/lib/mail-1.4.jar</systemPath>
+      <systemPath>${project.basedir}/lib/TestFramework-1.1.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
