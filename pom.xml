@@ -133,6 +133,20 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/TestFramework-1.1.jar</systemPath>
     </dependency>
+     <dependency>
+          <groupId>testautomation.framework</groupId>
+          <artifactId>TestFramework</artifactId>
+          <version>1.1</version>
+          <scope>system</scope>
+          <systemPath>${project.basedir}/lib/activation-1.0.2.jar</systemPath>
+    </dependency>
+     <dependency>
+          <groupId>testautomation.framework</groupId>
+          <artifactId>TestFramework</artifactId>
+          <version>1.1</version>
+          <scope>system</scope>
+          <systemPath>${project.basedir}/lib/mail-1.4.jar</systemPath>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
